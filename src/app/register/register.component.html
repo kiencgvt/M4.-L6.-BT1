@@ -1,0 +1,90 @@
+<form *ngIf="formRegister" [formGroup]="formRegister" (ngSubmit)="submitForm()" class="form-horizontal">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label">E-mail</label>
+      <div class="controls">
+        <input formControlName="email" type="email" name="email" placeholder="" class="input-xlarge" [ngClass]="(email?.invalid && email?.dirty) ? 'is-invalid' : ''">
+        <p class="help-block">Please provide your E-mail</p>
+        <div *ngIf="email?.invalid && email?.dirty " class="alert alert-danger">
+          <p *ngIf="email?.errors?.required" class="text-danger">
+            Trường email không được để trống
+          </p>
+          <p *ngIf="email?.errors?.email" class="text-danger">
+            Email không đúng định dạng
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label">Password</label>
+      <div class="controls">
+        <input formControlName="password" type="password" name="password" placeholder="" class="input-xlarge">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label">Password (Confirm)</label>
+      <div class="controls">
+        <input formControlName="confirmPassword" type="password" name="password_confirm" placeholder="" class="input-xlarge">
+        <p class="help-block">Please confirm password</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Country -->
+      <label class="control-label">Country</label>
+      <div class="controls">
+        <select formControlName="country" name="country">
+          <option value="VietNam">VietNam</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="China">China</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Age -->
+      <label class="control-label">Age</label>
+      <div class="controls">
+        <input formControlName="age" type="text" name="age" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Gender -->
+      <label class="control-label">Gender</label>
+      <div class="controls">
+        Male
+        <input formControlName="gender" type="radio" value="Male" name="gender">
+        Famale
+        <input formControlName="gender" type="radio" value="Female" name="gender">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Phone -->
+      <label class="control-label">Phone</label>
+      <div class="controls">
+        <input formControlName="phone" type="text" name="phone" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your Phone</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
